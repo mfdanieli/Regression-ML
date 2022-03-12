@@ -2,71 +2,61 @@
  
 ![Banner](imagem.png)
 
-## Predict diabetes according to risk factors
+## Predict ice-cream sales according to the weather
 
 ### 1. Project overview
  
 - *What is the goal?* 
-Predict if a pacient has diabetes.
+Predict ice-cream sales.
  
-- *How will this question be investigated?* Train and test the KNN model to associate risk factors and diabetes, using the [Pima Indians Diabetes Database](https://www.kaggle.com/uciml/pima-indians-diabetes-database).
+- *How will this question be investigated?* Train and test a linear regression model to associate temperature and ice-cream revenue, using the [Ice Cream Revenue Prediction
+ Database](https://www.kaggle.com/tariquepce/ice-cream-revenue-prediction).
 
 - *Why is this subjetc important?* 
 
-  1. A [recent study](https://diabetesjournals.org/care/article/42/9/1609/36309/Understanding-the-Economic-Costs-of-Diabetes-and) estimates that undiagnosed diabetes can cost **$31.7 billion annually**.
+  1. **69,3 billion dollars** is the estimated value of the ice cream market in 2022 [(Source)](https://www.finedininglovers.com/article/10-numbers-behind-ice-cream).
 
-  2. In India, close to **42%** of the people with diabetes **are not aware** of their disease status, according to [Claypool  et al. (2020](https://drc.bmj.com/content/8/1/e000965?utm_content=americas&utm_campaign=usage&utm_medium=cpc&utm_source=trendmd&tid=xRcC2XdbS3AruBxKod5PPqdgMH1tPvz6BDUBfpZxRBxbqeyVrGycvEwy6xcPsIS8dQipAA==)).
+  2. Waste of materia-prima is a huge problem for the enviroment and for business. One way to avoid this issue is to estimate product sales.
+     > Water footprint: it takes nearly 2000 L of water to produce 1 kg of ice cream [(Source)](https://healabel.com/i-ingredients/ice-cream).
 
-  3. Diabetes tests can cost up to $29 in India ([Patra, 2021](https://www.breathewellbeing.in/blog/list-of-diabetes-test-blood-glucose-level-normal-values-procedure-cost/)). These costs can add up, since these tests often are retaken before a final diagnosis.
+  3. There is a correlation between the temperature and ice cream sales, according to [The Oxford Review](https://oxford-review.com/what-is-a-correlation/#:~:text=As%20temperatures%20rise%20ice%20cream,occur%20as%20the%20temperature%20rises.).
 
-- *Hypothesis:* Diabetes can be diagnosed based on risk factors trhough modeling, reducing costs of exams and increasing diabetes identification among the population.
+- *Hypothesis:* Ice-cream revenue can be predicted through temperature data, reducing waste of material.
 
- - *Data Science skills and tools:* data exploration, wrangling, and visualization, machine learning (libraries pandas, numpy, matplotlib, seaborn, and sklearn).
+ - *Data Science skills and tools:* data exploration, wrangling, and visualization, machine learning (libraries pandas, numpy, matplotlib, seaborn, and sklearn), and deployment (libraries BeautifulSoup and telebot).
 
 
 ### 2. Solution strategy 
-- Import database
+- Import database.
 - Data wrangling (in order to assure quality and useful data):
-    - check missing values and data types 
+    - check missing values and data types.
 - Data exploration and visualization (useful to identify which health characteristics have the greatest impact on the development of diabetes):
-    - check data distribution, statitical metrics, correlations
-    - summarize main characteristics of the data, gain better understanding of relashionships and extract important variables
-- Standardize the variables: important to garantee proper scales
-- Machine learning model training and testing: KNN model
-- Select optimal *k* value through the elbow method
-- Evaluate model performance and its implications
+    - check data distribution, statitical metrics, correlations.
+    - summarize main characteristics of the data, gain better understanding of relashionships and extract important variables.
+- Machine learning model training and testing: linear regression model.
+- Interpret model.
+- Evaluate model performance and its implications.
+- Acquire real-time temperature and predictive sales for the day through the telegram app.
 
 ### 3. Highligths of the results
 
-- *Data analysis*
-    - 35% of the people in the dataset have diabetes.
-    - The disease is mostly correlated with glucose levels, followed by BMI (Body Mass Index).
-    - Women with more pregnanies are mostly like to have diabetes.
-    - People with higher BMI and skin thickness have the tendecy to develop diabetes.
-- *Model performance*
-    - Model accuracy is 75%.
-      > For comparison,  24% of participants in a recent [study](https://www.ncbi.nlm.nih.gov/pmc/articles/PMC6640891/#:~:text=Twenty%2Dfour%20percent%20of%20participants,137.2%2C%20P%20%3C0.001) reported being misdiagnosed with another condition before being diagnosed with type 1 diabetes.    
-    - false negatives are 8% in the test dataset.
-      > In diagnosis prediction, it is important to minimize false negatives, even if false positives are increased. This means that is preferable a model that says a person has diabetes (and in reality it is not true), other than a model that misses real positive diagnoses. 
+- *Data analysis*   
+    - Mean revenue is R$ 521.57, while average temperature of the dataset is 22.2°C (which is a typical day in São Paulo, for example).
+    - The minimal registered temperature was 0°C, when the revenue was R$ 10.
+    - Maximum temperature was 45°C, and R$ 1000 was the income.
+- *Model performance and interpretation*
+    - Average error of the model is R$ 19.
+    - The model explains nearly 98% of the ice-cream revenue.
+      > Demographic density, population's buying power and other aspects can affect sales. 
+    - According to the adjusted coefficients, a 1°C increase is associated with an increase of R$ 21,41 in revenue.
 
 ### 4. Business implications
-- The model can be useful in assisting a doctor to investigate whether a person has diabetes and which is the best treatment in two ways:
-    - It can help to decide if a simple blood glucose meter or a more sophisticated test (and therefore more expensive) would be necessary. 
-    - Increase early detection and awareness.
-      > People with diagnosed diabetes incur average medical expenditures of $16752 per year ([ADA, 2018](https://www.diabetes.org/about-us/statistics/cost-diabetes)). Medical care for prediabetes, on the other hand, costs $500 annually per person ([AMA, 2019](https://www.ama-assn.org/delivering-care/diabetes/how-prediabetes-exacts-43-billion-toll-us-economy#:~:text=On%20average%2C%20prediabetes%20costs%20%24500,person%20in%20medical%20costs%20only.)).
-        
-### 5. Conclusions
-In 2030, it is expected that the global burden of diabetes will reach USD 825 billion, affecting mainly middle and low-income countries ([Williams et al., 2020](https://www.diabetesresearchclinicalpractice.com/article/S0168-8227(20)30138-8/fulltext)). Therefore, prevention and early diagnosis are imperative. 
-The developed model showed reasonable accuracy to identify diabetes, based on health risk factors, and using a case study from India. The results indicate that test costs might be decreased, assisting doctors in diagnostics and treatments.  
+- The model can be useful in assisting a business to purchase the correct amount of raw material, avoiding waste at the end of the day.
+- Product selection and marketing actions: during cold days, promotions or winter flavors can be offered.
+       
 
 
-### 6. Suggestions for further steps
-- Select only those features with higher impact on developing diabetes:
-    - This might reduce the number of exams (therefore, costs), since not all risk factors would be significant enough. Other classification machine learning techniques (e. g. decision trees) could be applied.
-- Improve model accuracy using k-Fold Cross-Validation, for example.
-
-
-***Take a look at an app that I build, where you can input your own data and check in real time the chance to develop diabetes:***
+***Take a look of how you can receive today's ice-cream revenue prediction in your Telegram:***
 
 
 https://user-images.githubusercontent.com/97743505/158029433-bf4b9ffd-da6e-4859-abe5-335bb02c3958.mp4
