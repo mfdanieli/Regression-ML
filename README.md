@@ -17,7 +17,7 @@ Predict ice-cream sales.
   1. **69,3 billion dollars** is the estimated value of the ice cream market in 2022 [(Source)](https://www.finedininglovers.com/article/10-numbers-behind-ice-cream).
 
   2. Waste of materia-prima is a huge problem for the enviroment and for business. One way to avoid this issue is to estimate product sales.
-     > Water footprint: it takes nearly 2000 L of water to produce 1 kg of ice cream [(Source)](https://healabel.com/i-ingredients/ice-cream).
+     > It takes nearly 2000 L of water to produce 1 kg of ice cream [(Source)](https://healabel.com/i-ingredients/ice-cream).
 
   3. There is a correlation between the temperature and ice cream sales, according to [The Oxford Review](https://oxford-review.com/what-is-a-correlation/#:~:text=As%20temperatures%20rise%20ice%20cream,occur%20as%20the%20temperature%20rises.).
 
