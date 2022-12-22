@@ -1,6 +1,6 @@
 # Regression-ML
  
-![Banner](imagem.png)
+![Banner](2.png)
 
 ## Predict ice-cream sales according to the weather
 
